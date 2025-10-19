@@ -36,7 +36,7 @@ interface JobMatch {
 
 
 export const JobBoard = () => {
-  const { publicKey, connected, sendTransaction } = useWallet();
+  const { publicKey, connected } = useWallet();
   const { badgeNftProgram, jobBoardProgram, connection } = usePrograms();
   const toast = useToastContext();
   const [searchTerm, setSearchTerm] = useState('');
@@ -50,7 +50,7 @@ export const JobBoard = () => {
   const [postJobModal, setPostJobModal] = useState(false);
   const [postingJob, setPostingJob] = useState(false);
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [fetchingJobs, setFetchingJobs] = useState(false);
+  // const [fetchingJobs, setFetchingJobs] = useState(false);
   const [aiMatches, setAiMatches] = useState<JobMatch[]>([]);
   const [loadingAiMatches, setLoadingAiMatches] = useState(false);
   const [showAiRecommendations, setShowAiRecommendations] = useState(false);
@@ -74,15 +74,15 @@ export const JobBoard = () => {
   const fetchJobs = async () => {
     if (!jobBoardProgram) return;
 
-    setFetchingJobs(true);
+    // setFetchingJobs(true);
     try {
-      
+      // @ts-expect-error - Account type from IDL
       const jobAccounts = await jobBoardProgram.account.job.all();
 
       console.log(`Fetched ${jobAccounts.length} jobs from blockchain`);
 
-      
-      const fetchedJobs: Job[] = jobAccounts.map((jobAccount) => {
+
+      const fetchedJobs: Job[] = jobAccounts.map((jobAccount: any) => {
         const job = jobAccount.account;
 
         
@@ -154,7 +154,7 @@ export const JobBoard = () => {
     } catch (error) {
       console.error('Error fetching jobs:', error);
     } finally {
-      setFetchingJobs(false);
+      // setFetchingJobs(false);
     }
   };
 
@@ -163,7 +163,7 @@ export const JobBoard = () => {
 
     setLoading(true);
     try {
-
+      // @ts-expect-error - Account type from IDL
       const badges = await badgeNftProgram.account.badge.all([
         {
           memcmp: {
@@ -176,8 +176,8 @@ export const JobBoard = () => {
       console.log('Fetched badges:', badges);
 
       const badgeNames = badges
-        .filter(b => (b.account.isValid || b.account.is_valid) && !b.account.revoked)
-        .map(badge => {
+        .filter((b: any) => (b.account.isValid || b.account.is_valid) && !b.account.revoked)
+        .map((badge: any) => {
           const category = extractSkillCategory(badge.account);
 
           if (!category) {
@@ -186,7 +186,7 @@ export const JobBoard = () => {
 
           return SKILL_CATEGORY_NAMES[category];
         })
-        .filter(name => name !== undefined) as string[];
+        .filter((name: any) => name !== undefined) as string[];
 
       console.log('Badge names:', badgeNames);
       setUserBadges(badgeNames);

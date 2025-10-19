@@ -21,15 +21,24 @@ interface PostJobModalProps {
 
 export const PostJobModal = ({ onSubmit, onClose, loading }: PostJobModalProps) => {
   const toast = useToastContext();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    title: string;
+    description: string;
+    budgetMin: string;
+    budgetMax: string;
+    jobType: 'FullTime' | 'PartTime' | 'Contract' | 'Freelance';
+    duration: string;
+    location: string;
+    requiredBadges: SkillCategory[];
+  }>({
     title: '',
     description: '',
     budgetMin: '',
     budgetMax: '',
-    jobType: 'Contract' as const,
+    jobType: 'Contract',
     duration: '',
     location: 'Remote',
-    requiredBadges: [] as SkillCategory[],
+    requiredBadges: [],
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import type { ReactElement } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey, SystemProgram } from '@solana/web3.js';
-import { Award, Code, Palette, PenTool, BarChart3, Megaphone, Trophy, Clock, Shield, Loader2, CheckCircle } from 'lucide-react';
+import { Award, Code, Palette, PenTool, BarChart3, Megaphone, Clock, Shield, CheckCircle } from 'lucide-react';
 import { BN } from '@coral-xyz/anchor';
 import { usePrograms } from '../hooks/usePrograms';
 import { getBadgePDA, getBadgeMintPDA, getTestResultPDA, getMetadataPDA, getAssociatedTokenAddressPDA, getBadgeAuthorityPDA } from '../utils/pdaHelpers';
@@ -15,7 +16,7 @@ import { extractSkillCategory } from '../utils/badgeHelpers';
 interface SkillCategoryUI {
   id: SkillCategory;
   name: string;
-  icon: JSX.Element;
+  icon: ReactElement;
   description: string;
   duration: string;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
@@ -80,7 +81,7 @@ export const Credentials = () => {
   const [showTestModal, setShowTestModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [userBadges, setUserBadges] = useState<any[]>([]);
-  const [testScore, setTestScore] = useState(85); 
+  // const [testScore, setTestScore] = useState(85); 
 
   
   useEffect(() => {
@@ -93,7 +94,7 @@ export const Credentials = () => {
     if (!publicKey || !badgeNftProgram) return;
 
     try {
-      
+      // @ts-expect-error - Account type from IDL
       const badges = await badgeNftProgram.account.badge.all([
         {
           memcmp: {
@@ -179,6 +180,7 @@ export const Credentials = () => {
           console.log('⚠️ Transaction may have been processed already, checking account...');
 
           try {
+            // @ts-expect-error - Account type from IDL
             const testResultAccount = await badgeNftProgram.account.testResult.fetch(testResultPDA);
             console.log('✅ Test result exists! Score:', testResultAccount.score, 'Passed:', testResultAccount.passed);
 

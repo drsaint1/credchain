@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { PublicKey, SystemProgram, LAMPORTS_PER_SOL, ComputeBudgetProgram, TransactionMessage, VersionedTransaction } from '@solana/web3.js';
+import { PublicKey, SystemProgram, LAMPORTS_PER_SOL, ComputeBudgetProgram } from '@solana/web3.js';
 import { Plus, FileText, Shield, Loader2 } from 'lucide-react';
 import { BN } from '@coral-xyz/anchor';
 import { usePrograms } from '../hooks/usePrograms';
 import { getContractPDA } from '../utils/pdaHelpers';
-import { CONTRACT_CONFIG, ContractStatus, MilestoneStatus } from '../config/programs';
-import { TOKEN_PROGRAM_ID, getAssociatedTokenAddress } from '@solana/spl-token';
+import { CONTRACT_CONFIG } from '../config/programs';
 import { CompletionNFT } from '../components/CompletionNFT';
 import { useToastContext } from '../components/Layout';
 
@@ -70,7 +69,7 @@ export const Contracts = () => {
     if (!publicKey || !credchainProgram) return;
 
     try {
-      
+      // @ts-expect-error - Account type from IDL
       const allContractsRaw = await credchainProgram.account.contract.all();
       console.log('📦 Total contracts in program:', allContractsRaw.length);
 

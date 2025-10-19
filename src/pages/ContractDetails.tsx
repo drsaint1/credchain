@@ -3,13 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import {
-  FileText, Shield, CheckCircle, XCircle, Clock, DollarSign,
+  FileText, Shield, CheckCircle, XCircle, DollarSign,
   Upload, AlertTriangle, ArrowLeft, Download, Loader2, Edit3, Sparkles
 } from 'lucide-react';
 import { BN } from '@coral-xyz/anchor';
 import { usePrograms } from '../hooks/usePrograms';
 import { getContractPDA } from '../utils/pdaHelpers';
-import { TOKEN_PROGRAM_ID, getAssociatedTokenAddress, createAssociatedTokenAccountInstruction } from '@solana/spl-token';
+import { TOKEN_PROGRAM_ID, getAssociatedTokenAddress } from '@solana/spl-token';
 import { useToastContext } from '../components/Layout';
 
 const PINATA_GATEWAY_URL = import.meta.env.VITE_PINATA_GATEWAY_URL || 'https://gateway.pinata.cloud';
@@ -84,6 +84,7 @@ export const ContractDetails = () => {
     try {
       setLoading(true);
       const [contractPDA] = getContractPDA(contractId);
+      // @ts-expect-error - Account type from IDL
       const contractAccount = await credchainProgram.account.contract.fetch(contractPDA);
 
       const contractData: ContractData = {

@@ -36,15 +36,16 @@ export const KEY_PDAS = {
 };
 
 
-export enum SkillCategory {
-  SolanaDeveloper = 'SolanaDeveloper',
-  UIUXDesigner = 'UIUXDesigner',
-  ContentWriter = 'ContentWriter',
-  DataAnalyst = 'DataAnalyst',
-  MarketingSpecialist = 'MarketingSpecialist',
-  FrontendDeveloper = 'FrontendDeveloper',
-}
+export const SkillCategory = {
+  SolanaDeveloper: 'SolanaDeveloper',
+  UIUXDesigner: 'UIUXDesigner',
+  ContentWriter: 'ContentWriter',
+  DataAnalyst: 'DataAnalyst',
+  MarketingSpecialist: 'MarketingSpecialist',
+  FrontendDeveloper: 'FrontendDeveloper',
+} as const;
 
+export type SkillCategory = typeof SkillCategory[keyof typeof SkillCategory];
 
 export const SKILL_CATEGORY_NAMES: Record<SkillCategory, string> = {
   [SkillCategory.SolanaDeveloper]: 'Solana Developer',
@@ -55,42 +56,46 @@ export const SKILL_CATEGORY_NAMES: Record<SkillCategory, string> = {
   [SkillCategory.FrontendDeveloper]: 'Frontend Developer',
 };
 
+export const ContractStatus = {
+  Active: 'Active',
+  Funded: 'Funded',
+  InProgress: 'InProgress',
+  Completed: 'Completed',
+  Disputed: 'Disputed',
+  Cancelled: 'Cancelled',
+} as const;
 
-export enum ContractStatus {
-  Active = 'Active',
-  Funded = 'Funded',
-  InProgress = 'InProgress',
-  Completed = 'Completed',
-  Disputed = 'Disputed',
-  Cancelled = 'Cancelled',
-}
+export type ContractStatus = typeof ContractStatus[keyof typeof ContractStatus];
 
+export const MilestoneStatus = {
+  Pending: 'Pending',
+  UnderReview: 'UnderReview',
+  RevisionRequested: 'RevisionRequested',
+  Completed: 'Completed',
+} as const;
 
-export enum MilestoneStatus {
-  Pending = 'Pending',
-  UnderReview = 'UnderReview',
-  RevisionRequested = 'RevisionRequested',
-  Completed = 'Completed',
-}
+export type MilestoneStatus = typeof MilestoneStatus[keyof typeof MilestoneStatus];
 
+export const DisputeCategory = {
+  Quality: 'Quality',
+  Deadline: 'Deadline',
+  Scope: 'Scope',
+  Payment: 'Payment',
+  Communication: 'Communication',
+  Other: 'Other',
+} as const;
 
-export enum DisputeCategory {
-  Quality = 'Quality',
-  Deadline = 'Deadline',
-  Scope = 'Scope',
-  Payment = 'Payment',
-  Communication = 'Communication',
-  Other = 'Other',
-}
+export type DisputeCategory = typeof DisputeCategory[keyof typeof DisputeCategory];
 
+export const DisputeStatus = {
+  Open: 'Open',
+  UnderReview: 'UnderReview',
+  ResolvedForClient: 'ResolvedForClient',
+  ResolvedForFreelancer: 'ResolvedForFreelancer',
+  Cancelled: 'Cancelled',
+} as const;
 
-export enum DisputeStatus {
-  Open = 'Open',
-  UnderReview = 'UnderReview',
-  ResolvedForClient = 'ResolvedForClient',
-  ResolvedForFreelancer = 'ResolvedForFreelancer',
-  Cancelled = 'Cancelled',
-}
+export type DisputeStatus = typeof DisputeStatus[keyof typeof DisputeStatus];
 
 
 export const PDA_SEEDS = {

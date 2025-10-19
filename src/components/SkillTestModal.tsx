@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Clock, CheckCircle, XCircle, Loader2, AlertTriangle } from 'lucide-react';
-import type { SkillTest, Question } from '../data/testQuestions';
+import type { SkillTest } from '../data/testQuestions';
 
 interface SkillTestModalProps {
   test: SkillTest;

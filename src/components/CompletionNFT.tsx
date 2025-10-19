@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { PublicKey, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { PublicKey, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { Award, CheckCircle, Loader2, ExternalLink, Star } from 'lucide-react';
-import { BN } from '@coral-xyz/anchor';
 import { usePrograms } from '../hooks/usePrograms';
-import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
 import { getExplorerUrl } from '../config/programs';
 import { PROGRAM_IDS } from '../config/programs';
 
@@ -69,16 +67,8 @@ export const CompletionNFT = ({
     setMinting(true);
 
     try {
-      
-      const [completionBadgePDA] = PublicKey.findProgramAddressSync(
-        [
-          Buffer.from('completion-badge'),
-          publicKey.toBuffer(),
-          Buffer.from(contractId),
-        ],
-        badgeNftProgram.programId
-      );
 
+      // Generate completion mint PDA
       const [completionMintPDA] = PublicKey.findProgramAddressSync(
         [
           Buffer.from('completion-mint'),

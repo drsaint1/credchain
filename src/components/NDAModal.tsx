@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Shield, FileText, Check } from 'lucide-react';
+import { Shield, FileText } from 'lucide-react';
 
 interface NDAModalProps {
   isOpen: boolean;

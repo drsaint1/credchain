@@ -10,8 +10,6 @@ interface RevisionRequestProps {
 }
 
 export const RevisionRequest = ({
-  contractId,
-  milestoneId,
   currentRevisions,
   maxRevisions,
   onSubmit

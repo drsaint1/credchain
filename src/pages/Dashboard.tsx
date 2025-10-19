@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { Award, FileCheck, DollarSign, TrendingUp, Calendar, Star, Loader2, Trophy, ExternalLink } from 'lucide-react';
+import { Award, FileCheck, DollarSign, TrendingUp, Star, Loader2, Trophy } from 'lucide-react';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { usePrograms } from '../hooks/usePrograms';
-import { SKILL_CATEGORY_NAMES, SkillCategory } from '../config/programs';
+import { SKILL_CATEGORY_NAMES } from '../config/programs';
 import { extractSkillCategory } from '../utils/badgeHelpers';
 
 interface ContractData {
@@ -57,17 +57,17 @@ export const Dashboard = () => {
 
     setLoading(true);
     try {
-      
+      // @ts-expect-error - Account type from IDL
       const allContracts = await credchainProgram.account.contract.all();
 
-      const userContracts = allContracts.filter(c =>
+      const userContracts = allContracts.filter((c: any) =>
         c.account.client.toBase58() === publicKey.toBase58() ||
         c.account.freelancer.toBase58() === publicKey.toBase58()
       );
 
       setContracts(userContracts);
 
-      
+      // @ts-expect-error - Account type from IDL
       const userBadges = await badgeNftProgram.account.badge.all([
         {
           memcmp: {
@@ -95,8 +95,8 @@ export const Dashboard = () => {
 
       setCompletionNFTs(userCompletionNFTs);
 
-      
-      const activeCount = userContracts.filter(c => {
+
+      const activeCount = userContracts.filter((c: any) => {
         const status = Object.keys(c.account.status)[0];
         return status === 'active' || status === 'funded' || status === 'inProgress';
       }).length;
@@ -104,7 +104,7 @@ export const Dashboard = () => {
       let totalEarned = 0;
       let completedMilestones = 0;
 
-      userContracts.forEach(contract => {
+      userContracts.forEach((contract: any) => {
         
         if (contract.account.freelancer.toBase58() === publicKey.toBase58()) {
           contract.account.milestones.forEach((milestone: any) => {
@@ -216,9 +216,9 @@ export const Dashboard = () => {
     return colors[skillCategory] || 'from-gray-500 to-gray-700';
   };
 
-  const formatDate = (timestamp: number) => {
-    return new Date(timestamp * 1000).toLocaleDateString();
-  };
+  // const formatDate = (timestamp: number) => {
+  //   return new Date(timestamp * 1000).toLocaleDateString();
+  // };
 
   return (
     <div className="space-y-8">

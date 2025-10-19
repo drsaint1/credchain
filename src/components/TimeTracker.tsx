@@ -51,31 +51,30 @@ export const TimeTracker = ({ contractId, milestoneIndex }: TimeTrackerProps) =>
 
     setFetchingSession(true);
     try {
-      const [contractPDA] = getContractPDA(contractId);
+      // Time tracking not yet implemented in smart contract
+      // const [contractPDA] = getContractPDA(contractId);
+      // const allSessions = await credchainProgram.account.timeSession.all([
+      //   {
+      //     memcmp: {
+      //       offset: 8,
+      //       bytes: contractPDA.toBase58(),
+      //     }
+      //   }
+      // ]);
 
-      
-      const allSessions = await credchainProgram.account.timeSession.all([
-        {
-          memcmp: {
-            offset: 8, 
-            bytes: contractPDA.toBase58(),
-          }
-        }
-      ]);
+      // const milestoneSessions = allSessions
+      //   .filter((s: any) => s.account.milestoneIndex === milestoneIndex)
+      //   .map((s: any) => ({
+      //     startTime: s.account.startTime.toNumber(),
+      //     endTime: s.account.endTime?.toNumber() || 0,
+      //     duration: s.account.duration?.toNumber() || 0,
+      //     description: s.account.description || '',
+      //     nonce: s.account.startTime.toString(),
+      //   }))
+      //   .sort((a: any, b: any) => b.startTime - a.startTime);
 
-      
-      const milestoneSessions = allSessions
-        .filter(s => s.account.milestoneIndex === milestoneIndex)
-        .map(s => ({
-          startTime: s.account.startTime.toNumber(),
-          endTime: s.account.endTime?.toNumber() || 0,
-          duration: s.account.duration?.toNumber() || 0,
-          description: s.account.description || '',
-          nonce: s.account.startTime.toString(),
-        }))
-        .sort((a, b) => b.startTime - a.startTime);
-
-      setSessions(milestoneSessions);
+      // setSessions(milestoneSessions);
+      setSessions([]);
     } catch (error) {
       console.error('Error fetching sessions:', error);
     } finally {

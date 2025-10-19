@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import type { FC, ReactNode } from 'react';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import {
   PhantomWalletAdapter,
@@ -18,10 +17,7 @@ interface WalletContextProviderProps {
 }
 
 export const WalletContextProvider: FC<WalletContextProviderProps> = ({ children }) => {
-  
-  const network = WalletAdapterNetwork.Devnet;
-
-  
+  // Network configuration
   const endpoint = useMemo(() => NETWORK.CLUSTER_URL, []);
 
   const wallets = useMemo(

@@ -64,11 +64,12 @@ export const EmployerVerification = () => {
 
       const candidatePubkey = new PublicKey(walletAddress);
 
-      
+
+      // @ts-expect-error - Account type from IDL
       const badges = await badgeNftProgram.account.badge.all([
         {
           memcmp: {
-            offset: 8 + 32, 
+            offset: 8 + 32,
             bytes: candidatePubkey.toBase58(),
           }
         }
@@ -76,8 +77,8 @@ export const EmployerVerification = () => {
 
       console.log(`Found ${badges.length} badges for ${walletAddress}`);
 
-      
-      const verifiedBadges: BadgeVerification[] = badges.map(badge => {
+
+      const verifiedBadges: BadgeVerification[] = badges.map((badge: any) => {
         const skillCategory = extractSkillCategory(badge.account) || SkillCategory.SolanaDeveloper;
 
         const issueDate = new Date((badge.account.issueDate || badge.account.issuedAt || badge.account.issue_date)?.toNumber?.() * 1000 || Date.now());
