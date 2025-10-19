@@ -1,0 +1,60 @@
+{
+  "name": "CredChain Job Completion: {{JOB_TITLE}}",
+  "symbol": "CRED-JOB",
+  "description": "This badge certifies that {{FREELANCER_NAME}} successfully completed the job '{{JOB_TITLE}}' for {{CLIENT_NAME}} on CredChain platform. Contract amount: {{CONTRACT_AMOUNT}} SOL. Completed on {{COMPLETION_DATE}}.",
+  "image": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/job-completion.png",
+  "external_url": "https://credchain.io/contracts/{{CONTRACT_ID}}",
+  "attributes": [
+    {
+      "trait_type": "Badge Type",
+      "value": "Job Completion"
+    },
+    {
+      "trait_type": "Job Title",
+      "value": "{{JOB_TITLE}}"
+    },
+    {
+      "trait_type": "Contract Amount",
+      "value": "{{CONTRACT_AMOUNT}} SOL"
+    },
+    {
+      "trait_type": "Completion Date",
+      "value": "{{COMPLETION_DATE}}"
+    },
+    {
+      "trait_type": "Freelancer",
+      "value": "{{FREELANCER_ADDRESS}}"
+    },
+    {
+      "trait_type": "Client",
+      "value": "{{CLIENT_ADDRESS}}"
+    },
+    {
+      "trait_type": "Platform",
+      "value": "CredChain"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Contract ID",
+      "value": "{{CONTRACT_ID}}"
+    }
+  ],
+  "properties": {
+    "category": "achievement",
+    "files": [
+      {
+        "uri": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/job-completion.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "FXtdnHTgD2sDEih5s7WgXGrsY9MeGh484h7tzfxqXu6h",
+        "share": 100
+      }
+    ]
+  }
+}

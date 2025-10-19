@@ -1,0 +1,52 @@
+{
+  "name": "CredChain Content Writer Badge",
+  "symbol": "CRED-WRT",
+  "description": "This badge certifies that the holder has successfully passed the Content Writer skill test on CredChain with a score of 70% or higher, demonstrating expertise in SEO writing, copywriting, technical documentation, and content strategy.",
+  "image": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/content-writer.png",
+  "external_url": "https://credchain.io/credentials/content-writer",
+  "attributes": [
+    {
+      "trait_type": "Skill Category",
+      "value": "Content Writer"
+    },
+    {
+      "trait_type": "Difficulty",
+      "value": "Intermediate"
+    },
+    {
+      "trait_type": "Test Duration",
+      "value": "60 minutes"
+    },
+    {
+      "trait_type": "Platform",
+      "value": "CredChain"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Badge Type",
+      "value": "Skill Certification"
+    },
+    {
+      "trait_type": "Issuer",
+      "value": "CredChain DAO"
+    }
+  ],
+  "properties": {
+    "category": "certification",
+    "files": [
+      {
+        "uri": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/content-writer.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "FXtdnHTgD2sDEih5s7WgXGrsY9MeGh484h7tzfxqXu6h",
+        "share": 100
+      }
+    ]
+  }
+}

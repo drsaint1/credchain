@@ -1,0 +1,1096 @@
+{
+  "address": "J4cUiyURTW8woQCsc3YQwPPe2jMr8M27HFKWst468tUk",
+  "metadata": {
+    "name": "credchain",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "approve_milestone",
+      "discriminator": [
+        145,
+        85,
+        92,
+        60,
+        50,
+        130,
+        219,
+        106
+      ],
+      "accounts": [
+        {
+          "name": "contract",
+          "writable": true
+        },
+        {
+          "name": "client",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "freelancer_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "create_contract",
+      "discriminator": [
+        244,
+        48,
+        244,
+        178,
+        216,
+        88,
+        122,
+        52
+      ],
+      "accounts": [
+        {
+          "name": "contract",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  97,
+                  99,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "contract_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "client",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "freelancer"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "contract_id",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "total_amount",
+          "type": "u64"
+        },
+        {
+          "name": "milestones",
+          "type": {
+            "vec": {
+              "defined": {
+                "name": "MilestoneData"
+              }
+            }
+          }
+        },
+        {
+          "name": "payment_token",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "deposit_escrow",
+      "discriminator": [
+        226,
+        112,
+        158,
+        176,
+        178,
+        118,
+        153,
+        128
+      ],
+      "accounts": [
+        {
+          "name": "contract",
+          "writable": true
+        },
+        {
+          "name": "client",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "client_token_account",
+          "writable": true
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "end_time_session",
+      "discriminator": [
+        152,
+        95,
+        234,
+        48,
+        137,
+        97,
+        149,
+        162
+      ],
+      "accounts": [
+        {
+          "name": "session",
+          "writable": true
+        },
+        {
+          "name": "freelancer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "open_dispute",
+      "discriminator": [
+        137,
+        25,
+        99,
+        119,
+        23,
+        223,
+        161,
+        42
+      ],
+      "accounts": [
+        {
+          "name": "contract",
+          "writable": true
+        },
+        {
+          "name": "dispute",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  105,
+                  115,
+                  112,
+                  117,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "contract"
+              }
+            ]
+          }
+        },
+        {
+          "name": "initiator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "category",
+          "type": {
+            "defined": {
+              "name": "DisputeCategory"
+            }
+          }
+        },
+        {
+          "name": "reason",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "request_revision",
+      "discriminator": [
+        205,
+        195,
+        75,
+        171,
+        242,
+        149,
+        90,
+        14
+      ],
+      "accounts": [
+        {
+          "name": "contract",
+          "writable": true
+        },
+        {
+          "name": "client",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "reason",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "sign_nda",
+      "discriminator": [
+        219,
+        33,
+        112,
+        51,
+        1,
+        232,
+        198,
+        236
+      ],
+      "accounts": [
+        {
+          "name": "contract",
+          "writable": true
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "start_time_session",
+      "discriminator": [
+        213,
+        11,
+        61,
+        25,
+        134,
+        165,
+        10,
+        195
+      ],
+      "accounts": [
+        {
+          "name": "contract"
+        },
+        {
+          "name": "session",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  101,
+                  115,
+                  115,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "contract"
+              },
+              {
+                "kind": "arg",
+                "path": "session_nonce"
+              }
+            ]
+          }
+        },
+        {
+          "name": "freelancer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_contract_id",
+          "type": "string"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "_session_nonce",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "submit_arbitrator_vote",
+      "discriminator": [
+        73,
+        78,
+        246,
+        202,
+        216,
+        1,
+        178,
+        46
+      ],
+      "accounts": [
+        {
+          "name": "dispute",
+          "writable": true
+        },
+        {
+          "name": "arbitrator",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "vote_for_client",
+          "type": "bool"
+        },
+        {
+          "name": "reasoning",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "submit_deliverable",
+      "discriminator": [
+        38,
+        137,
+        64,
+        44,
+        237,
+        11,
+        125,
+        101
+      ],
+      "accounts": [
+        {
+          "name": "contract",
+          "writable": true
+        },
+        {
+          "name": "freelancer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "ipfs_hash",
+          "type": "string"
+        },
+        {
+          "name": "file_name",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Contract",
+      "discriminator": [
+        172,
+        138,
+        115,
+        242,
+        121,
+        67,
+        183,
+        26
+      ]
+    },
+    {
+      "name": "Dispute",
+      "discriminator": [
+        36,
+        49,
+        241,
+        67,
+        40,
+        36,
+        241,
+        74
+      ]
+    },
+    {
+      "name": "TimeSession",
+      "discriminator": [
+        156,
+        70,
+        44,
+        104,
+        3,
+        7,
+        96,
+        33
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "DisputeOpenedEvent",
+      "discriminator": [
+        91,
+        164,
+        118,
+        191,
+        199,
+        195,
+        118,
+        21
+      ]
+    },
+    {
+      "name": "MilestoneApprovedEvent",
+      "discriminator": [
+        149,
+        49,
+        174,
+        211,
+        26,
+        246,
+        145,
+        216
+      ]
+    },
+    {
+      "name": "RevisionRequestedEvent",
+      "discriminator": [
+        79,
+        164,
+        8,
+        9,
+        252,
+        89,
+        162,
+        244
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidMilestoneCount",
+      "msg": "Invalid milestone count (1-5 allowed)"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidContractStatus",
+      "msg": "Invalid contract status"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidDepositAmount",
+      "msg": "Invalid deposit amount"
+    },
+    {
+      "code": 6003,
+      "name": "UnauthorizedSigner",
+      "msg": "Unauthorized signer"
+    },
+    {
+      "code": 6004,
+      "name": "UnauthorizedFreelancer",
+      "msg": "Unauthorized freelancer"
+    },
+    {
+      "code": 6005,
+      "name": "UnauthorizedClient",
+      "msg": "Unauthorized client"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidMilestoneIndex",
+      "msg": "Invalid milestone index"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidMilestoneStatus",
+      "msg": "Invalid milestone status"
+    },
+    {
+      "code": 6008,
+      "name": "MaxRevisionsReached",
+      "msg": "Maximum revisions reached (3)"
+    },
+    {
+      "code": 6009,
+      "name": "UnauthorizedDispute",
+      "msg": "Unauthorized dispute initiator"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidDisputeStatus",
+      "msg": "Invalid dispute status"
+    },
+    {
+      "code": 6011,
+      "name": "UnauthorizedArbitrator",
+      "msg": "Unauthorized arbitrator"
+    },
+    {
+      "code": 6012,
+      "name": "AlreadyVoted",
+      "msg": "Already voted"
+    }
+  ],
+  "types": [
+    {
+      "name": "ArbitratorVote",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "arbitrator",
+            "type": "pubkey"
+          },
+          {
+            "name": "vote_for_client",
+            "type": "bool"
+          },
+          {
+            "name": "reasoning",
+            "type": "string"
+          },
+          {
+            "name": "voted_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Contract",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contract_id",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "client",
+            "type": "pubkey"
+          },
+          {
+            "name": "freelancer",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_amount",
+            "type": "u64"
+          },
+          {
+            "name": "paid_amount",
+            "type": "u64"
+          },
+          {
+            "name": "payment_token",
+            "type": "pubkey"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "ContractStatus"
+              }
+            }
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "nda_signed_client",
+            "type": "bool"
+          },
+          {
+            "name": "nda_signed_freelancer",
+            "type": "bool"
+          },
+          {
+            "name": "milestones",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "Milestone"
+                }
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContractStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Active"
+          },
+          {
+            "name": "Funded"
+          },
+          {
+            "name": "InProgress"
+          },
+          {
+            "name": "Completed"
+          },
+          {
+            "name": "Disputed"
+          },
+          {
+            "name": "Cancelled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Deliverable",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "ipfs_hash",
+            "type": "string"
+          },
+          {
+            "name": "file_name",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "uploaded_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Dispute",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contract",
+            "type": "pubkey"
+          },
+          {
+            "name": "initiator",
+            "type": "pubkey"
+          },
+          {
+            "name": "category",
+            "type": {
+              "defined": {
+                "name": "DisputeCategory"
+              }
+            }
+          },
+          {
+            "name": "reason",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "DisputeStatus"
+              }
+            }
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "arbitrators",
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "votes",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "ArbitratorVote"
+                }
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DisputeCategory",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Quality"
+          },
+          {
+            "name": "Deadline"
+          },
+          {
+            "name": "Scope"
+          },
+          {
+            "name": "Payment"
+          },
+          {
+            "name": "Communication"
+          },
+          {
+            "name": "Other"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DisputeOpenedEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contract_id",
+            "type": "string"
+          },
+          {
+            "name": "initiator",
+            "type": "pubkey"
+          },
+          {
+            "name": "category",
+            "type": {
+              "defined": {
+                "name": "DisputeCategory"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "DisputeStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Open"
+          },
+          {
+            "name": "UnderReview"
+          },
+          {
+            "name": "ResolvedForClient"
+          },
+          {
+            "name": "ResolvedForFreelancer"
+          },
+          {
+            "name": "Cancelled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Milestone",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "index",
+            "type": "u8"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "deadline",
+            "type": "i64"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "MilestoneStatus"
+              }
+            }
+          },
+          {
+            "name": "completed_at",
+            "type": "i64"
+          },
+          {
+            "name": "revision_count",
+            "type": "u8"
+          },
+          {
+            "name": "deliverables",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "Deliverable"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MilestoneApprovedEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contract_id",
+            "type": "string"
+          },
+          {
+            "name": "milestone_index",
+            "type": "u8"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MilestoneData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "deadline",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MilestoneStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Pending"
+          },
+          {
+            "name": "UnderReview"
+          },
+          {
+            "name": "RevisionRequested"
+          },
+          {
+            "name": "Completed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RevisionRequestedEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contract_id",
+            "type": "string"
+          },
+          {
+            "name": "milestone_index",
+            "type": "u8"
+          },
+          {
+            "name": "reason",
+            "type": "string"
+          },
+          {
+            "name": "revision_count",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TimeSession",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contract",
+            "type": "pubkey"
+          },
+          {
+            "name": "freelancer",
+            "type": "pubkey"
+          },
+          {
+            "name": "milestone_index",
+            "type": "u8"
+          },
+          {
+            "name": "start_time",
+            "type": "i64"
+          },
+          {
+            "name": "end_time",
+            "type": "i64"
+          },
+          {
+            "name": "duration",
+            "type": "i64"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}

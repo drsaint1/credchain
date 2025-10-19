@@ -1,0 +1,52 @@
+{
+  "name": "CredChain Marketing Specialist Badge",
+  "symbol": "CRED-MKT",
+  "description": "This badge certifies that the holder has successfully passed the Marketing Specialist skill test on CredChain with a score of 70% or higher, demonstrating expertise in campaign strategy, analytics, growth marketing, and digital advertising.",
+  "image": "ipfs://REPLACE_WITH_IMAGE_CID/marketing-specialist.png",
+  "external_url": "https://credchain.io/credentials/marketing-specialist",
+  "attributes": [
+    {
+      "trait_type": "Skill Category",
+      "value": "Marketing Specialist"
+    },
+    {
+      "trait_type": "Difficulty",
+      "value": "Intermediate"
+    },
+    {
+      "trait_type": "Test Duration",
+      "value": "75 minutes"
+    },
+    {
+      "trait_type": "Platform",
+      "value": "CredChain"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Badge Type",
+      "value": "Skill Certification"
+    },
+    {
+      "trait_type": "Issuer",
+      "value": "CredChain DAO"
+    }
+  ],
+  "properties": {
+    "category": "certification",
+    "files": [
+      {
+        "uri": "ipfs://REPLACE_WITH_IMAGE_CID/marketing-specialist.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "FXtdnHTgD2sDEih5s7WgXGrsY9MeGh484h7tzfxqXu6h",
+        "share": 100
+      }
+    ]
+  }
+}

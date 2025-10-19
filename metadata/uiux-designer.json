@@ -1,0 +1,52 @@
+{
+  "name": "CredChain UI/UX Designer Badge",
+  "symbol": "CRED-UX",
+  "description": "This badge certifies that the holder has successfully passed the UI/UX Designer skill test on CredChain with a score of 70% or higher, demonstrating expertise in Figma, design systems, user research, and interface design principles.",
+  "image": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/uiux-designer.png",
+  "external_url": "https://credchain.io/credentials/uiux-designer",
+  "attributes": [
+    {
+      "trait_type": "Skill Category",
+      "value": "UI/UX Designer"
+    },
+    {
+      "trait_type": "Difficulty",
+      "value": "Intermediate"
+    },
+    {
+      "trait_type": "Test Duration",
+      "value": "120 minutes"
+    },
+    {
+      "trait_type": "Platform",
+      "value": "CredChain"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Badge Type",
+      "value": "Skill Certification"
+    },
+    {
+      "trait_type": "Issuer",
+      "value": "CredChain DAO"
+    }
+  ],
+  "properties": {
+    "category": "certification",
+    "files": [
+      {
+        "uri": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/uiux-designer.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "FXtdnHTgD2sDEih5s7WgXGrsY9MeGh484h7tzfxqXu6h",
+        "share": 100
+      }
+    ]
+  }
+}

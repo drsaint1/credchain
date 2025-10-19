@@ -1,0 +1,970 @@
+{
+  "address": "79s9nmY3ZtsWeKakiBMyagHi6652AGSR413BXRZDZu7Z",
+  "metadata": {
+    "name": "badge_nft",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "initialize",
+      "docs": ["Initialize the badge program authority"],
+      "discriminator": [175, 175, 109, 31, 13, 152, 155, 237],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [97, 117, 116, 104, 111, 114, 105, 116, 121]
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "mint_badge",
+      "docs": ["Mint skill badge NFT after passing test"],
+      "discriminator": [242, 234, 237, 183, 232, 245, 146, 1],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [97, 117, 116, 104, 111, 114, 105, 116, 121]
+              }
+            ]
+          }
+        },
+        {
+          "name": "test_result",
+          "writable": true
+        },
+        {
+          "name": "badge",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [98, 97, 100, 103, 101]
+              },
+              {
+                "kind": "account",
+                "path": "candidate"
+              },
+              {
+                "kind": "arg",
+                "path": "skill_category"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [98, 97, 100, 103, 101, 45, 109, 105, 110, 116]
+              },
+              {
+                "kind": "account",
+                "path": "candidate"
+              },
+              {
+                "kind": "arg",
+                "path": "skill_category"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "candidate"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "writable": true
+        },
+        {
+          "name": "candidate",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "skill_category",
+          "type": {
+            "defined": {
+              "name": "SkillCategory"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "mint_job_completion_badge",
+      "docs": ["Mint job completion NFT badge for freelancer"],
+      "discriminator": [66, 230, 47, 76, 118, 0, 232, 165],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [97, 117, 116, 104, 111, 114, 105, 116, 121]
+              }
+            ]
+          }
+        },
+        {
+          "name": "job_badge",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [106, 111, 98, 45, 98, 97, 100, 103, 101]
+              },
+              {
+                "kind": "account",
+                "path": "freelancer"
+              },
+              {
+                "kind": "arg",
+                "path": "contract_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106, 111, 98, 45, 98, 97, 100, 103, 101, 45, 109, 105, 110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "freelancer"
+              },
+              {
+                "kind": "arg",
+                "path": "contract_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "freelancer"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "writable": true
+        },
+        {
+          "name": "freelancer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "client"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "contract_id",
+          "type": "string"
+        },
+        {
+          "name": "job_title",
+          "type": "string"
+        },
+        {
+          "name": "contract_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "record_test_completion",
+      "docs": ["Record test completion"],
+      "discriminator": [232, 184, 188, 102, 231, 1, 106, 92],
+      "accounts": [
+        {
+          "name": "test_result",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [116, 101, 115, 116, 45, 114, 101, 115, 117, 108, 116]
+              },
+              {
+                "kind": "account",
+                "path": "candidate"
+              },
+              {
+                "kind": "arg",
+                "path": "skill_category"
+              },
+              {
+                "kind": "arg",
+                "path": "test_nonce"
+              }
+            ]
+          }
+        },
+        {
+          "name": "candidate",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "skill_category",
+          "type": {
+            "defined": {
+              "name": "SkillCategory"
+            }
+          }
+        },
+        {
+          "name": "score",
+          "type": "u8"
+        },
+        {
+          "name": "duration",
+          "type": "i64"
+        },
+        {
+          "name": "proctored",
+          "type": "bool"
+        },
+        {
+          "name": "_test_nonce",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "revoke_badge",
+      "docs": ["Revoke badge (admin only)"],
+      "discriminator": [108, 171, 101, 185, 99, 36, 98, 112],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [97, 117, 116, 104, 111, 114, 105, 116, 121]
+              }
+            ]
+          }
+        },
+        {
+          "name": "badge",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": ["authority"]
+        }
+      ],
+      "args": [
+        {
+          "name": "reason",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "update_leaderboard",
+      "docs": ["Update leaderboard score"],
+      "discriminator": [72, 95, 102, 32, 118, 158, 247, 34],
+      "accounts": [
+        {
+          "name": "leaderboard",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [108, 101, 97, 100, 101, 114, 98, 111, 97, 114, 100]
+              },
+              {
+                "kind": "arg",
+                "path": "skill_category"
+              }
+            ]
+          }
+        },
+        {
+          "name": "test_result"
+        },
+        {
+          "name": "candidate",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "skill_category",
+          "type": {
+            "defined": {
+              "name": "SkillCategory"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "verify_badge",
+      "docs": ["Verify badge validity (can be called by anyone)"],
+      "discriminator": [212, 78, 222, 77, 179, 1, 166, 53],
+      "accounts": [
+        {
+          "name": "badge"
+        },
+        {
+          "name": "verifier",
+          "signer": true
+        }
+      ],
+      "args": [],
+      "returns": {
+        "defined": {
+          "name": "VerificationResult"
+        }
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Badge",
+      "discriminator": [40, 127, 162, 181, 177, 154, 1, 48]
+    },
+    {
+      "name": "JobCompletionBadge",
+      "discriminator": [108, 91, 25, 109, 28, 106, 79, 52]
+    },
+    {
+      "name": "Leaderboard",
+      "discriminator": [247, 186, 238, 243, 194, 30, 9, 36]
+    },
+    {
+      "name": "ProgramAuthority",
+      "discriminator": [38, 198, 188, 60, 171, 210, 169, 38]
+    },
+    {
+      "name": "TestResult",
+      "discriminator": [247, 102, 86, 169, 94, 17, 57, 141]
+    }
+  ],
+  "events": [
+    {
+      "name": "BadgeMintedEvent",
+      "discriminator": [161, 85, 188, 33, 88, 42, 108, 109]
+    },
+    {
+      "name": "BadgeRevokedEvent",
+      "discriminator": [117, 239, 202, 152, 214, 235, 56, 184]
+    },
+    {
+      "name": "BadgeVerifiedEvent",
+      "discriminator": [235, 26, 44, 95, 31, 93, 33, 0]
+    },
+    {
+      "name": "JobBadgeMintedEvent",
+      "discriminator": [151, 6, 53, 75, 156, 125, 1, 230]
+    },
+    {
+      "name": "TestCompletedEvent",
+      "discriminator": [102, 222, 53, 73, 73, 147, 10, 1]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidScore",
+      "msg": "Invalid score (0-100)"
+    },
+    {
+      "code": 6001,
+      "name": "ScoreTooLow",
+      "msg": "Score too low (minimum 70%)"
+    },
+    {
+      "code": 6002,
+      "name": "TestNotPassed",
+      "msg": "Test not passed"
+    },
+    {
+      "code": 6003,
+      "name": "BadgeAlreadyMinted",
+      "msg": "Badge already minted"
+    },
+    {
+      "code": 6004,
+      "name": "BadgeAlreadyRevoked",
+      "msg": "Badge already revoked"
+    }
+  ],
+  "types": [
+    {
+      "name": "Badge",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "skill_category",
+            "type": {
+              "defined": {
+                "name": "SkillCategory"
+              }
+            }
+          },
+          {
+            "name": "issue_date",
+            "type": "i64"
+          },
+          {
+            "name": "expiry_date",
+            "type": "i64"
+          },
+          {
+            "name": "test_score",
+            "type": "u8"
+          },
+          {
+            "name": "is_valid",
+            "type": "bool"
+          },
+          {
+            "name": "revoked",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BadgeMintedEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "candidate",
+            "type": "pubkey"
+          },
+          {
+            "name": "skill_category",
+            "type": {
+              "defined": {
+                "name": "SkillCategory"
+              }
+            }
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "score",
+            "type": "u8"
+          },
+          {
+            "name": "expiry_date",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BadgeRevokedEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "badge",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "skill_category",
+            "type": {
+              "defined": {
+                "name": "SkillCategory"
+              }
+            }
+          },
+          {
+            "name": "reason",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BadgeVerifiedEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "badge",
+            "type": "pubkey"
+          },
+          {
+            "name": "verifier",
+            "type": "pubkey"
+          },
+          {
+            "name": "is_valid",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JobBadgeMintedEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "freelancer",
+            "type": "pubkey"
+          },
+          {
+            "name": "contract_id",
+            "type": "string"
+          },
+          {
+            "name": "job_title",
+            "type": "string"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "completion_date",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JobCompletionBadge",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "freelancer",
+            "type": "pubkey"
+          },
+          {
+            "name": "client",
+            "type": "pubkey"
+          },
+          {
+            "name": "contract_id",
+            "type": "string"
+          },
+          {
+            "name": "job_title",
+            "type": "string"
+          },
+          {
+            "name": "completion_date",
+            "type": "i64"
+          },
+          {
+            "name": "contract_amount",
+            "type": "u64"
+          },
+          {
+            "name": "is_valid",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Leaderboard",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "skill_category",
+            "type": {
+              "defined": {
+                "name": "SkillCategory"
+              }
+            }
+          },
+          {
+            "name": "entries",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "LeaderboardEntry"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "LeaderboardEntry",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "candidate",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_score",
+            "type": "u32"
+          },
+          {
+            "name": "test_count",
+            "type": "u32"
+          },
+          {
+            "name": "average_score",
+            "type": "u32"
+          },
+          {
+            "name": "badge_count",
+            "type": "u32"
+          },
+          {
+            "name": "last_updated",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProgramAuthority",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_badges_minted",
+            "type": "u64"
+          },
+          {
+            "name": "total_job_badges_minted",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SkillCategory",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "SolanaDeveloper"
+          },
+          {
+            "name": "UIUXDesigner"
+          },
+          {
+            "name": "ContentWriter"
+          },
+          {
+            "name": "DataAnalyst"
+          },
+          {
+            "name": "MarketingSpecialist"
+          },
+          {
+            "name": "FrontendDeveloper"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TestCompletedEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "candidate",
+            "type": "pubkey"
+          },
+          {
+            "name": "skill_category",
+            "type": {
+              "defined": {
+                "name": "SkillCategory"
+              }
+            }
+          },
+          {
+            "name": "score",
+            "type": "u8"
+          },
+          {
+            "name": "passed",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TestResult",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "candidate",
+            "type": "pubkey"
+          },
+          {
+            "name": "skill_category",
+            "type": {
+              "defined": {
+                "name": "SkillCategory"
+              }
+            }
+          },
+          {
+            "name": "score",
+            "type": "u8"
+          },
+          {
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "name": "test_date",
+            "type": "i64"
+          },
+          {
+            "name": "duration",
+            "type": "i64"
+          },
+          {
+            "name": "proctored",
+            "type": "bool"
+          },
+          {
+            "name": "badge_minted",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "VerificationResult",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "skill_category",
+            "type": {
+              "defined": {
+                "name": "SkillCategory"
+              }
+            }
+          },
+          {
+            "name": "test_score",
+            "type": "u8"
+          },
+          {
+            "name": "issue_date",
+            "type": "i64"
+          },
+          {
+            "name": "expiry_date",
+            "type": "i64"
+          },
+          {
+            "name": "is_valid",
+            "type": "bool"
+          },
+          {
+            "name": "is_expired",
+            "type": "bool"
+          },
+          {
+            "name": "is_revoked",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ]
+}

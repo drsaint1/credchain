@@ -1,0 +1,50 @@
+alert('Contract not found');
+toast.error('Contract not found');
+---
+alert('SOL escrow deposit not yet implemented. Please use SPL tokens.');
+toast.info('SOL escrow deposit not yet implemented. Please use SPL tokens.');
+---
+alert(`✅ Escrow deposited successfully!\nTransaction: ${tx}`);
+toast.success(`Escrow deposited successfully! Transaction: ${tx.substring(0, 8)}...`);
+---
+alert(`Failed to deposit escrow:\n${error.message}`);
+toast.error(`Failed to deposit escrow: ${error.message}`);
+---
+alert(`✅ NDA signed successfully!\nTransaction: ${tx}`);
+toast.success(`NDA signed successfully! Transaction: ${tx.substring(0, 8)}...`);
+---
+alert(`Failed to sign NDA:\n${error.message}`);
+toast.error(`Failed to sign NDA: ${error.message}`);
+---
+alert('Please fill in all deliverable fields');
+toast.warning('Please fill in all deliverable fields');
+---
+alert(`✅ Deliverable submitted successfully!\nTransaction: ${tx}`);
+toast.success(`Deliverable submitted successfully! Transaction: ${tx.substring(0, 8)}...`);
+---
+alert(`Failed to submit deliverable:\n${error.message}`);
+toast.error(`Failed to submit deliverable: ${error.message}`);
+---
+alert('Please provide a revision reason');
+toast.warning('Please provide a revision reason');
+---
+alert(`✅ Revision requested successfully!\nTransaction: ${tx}`);
+toast.success(`Revision requested successfully! Transaction: ${tx.substring(0, 8)}...`);
+---
+alert(`Failed to request revision:\n${error.message}`);
+toast.error(`Failed to request revision: ${error.message}`);
+---
+alert(`✅ Milestone approved and payment released!\nTransaction: ${tx}`);
+toast.success(`Milestone approved and payment released! Transaction: ${tx.substring(0, 8)}...`);
+---
+alert(`Failed to approve milestone:\n${error.message}`);
+toast.error(`Failed to approve milestone: ${error.message}`);
+---
+alert('Please fill in all dispute fields');
+toast.warning('Please fill in all dispute fields');
+---
+alert(`✅ Dispute opened successfully!\nTransaction: ${tx}`);
+toast.success(`Dispute opened successfully! Transaction: ${tx.substring(0, 8)}...`);
+---
+alert(`Failed to open dispute:\n${error.message}`);
+toast.error(`Failed to open dispute: ${error.message}`);

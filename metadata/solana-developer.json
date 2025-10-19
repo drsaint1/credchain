@@ -1,0 +1,52 @@
+{
+  "name": "CredChain Solana Developer Badge",
+  "symbol": "CRED-SOL",
+  "description": "This badge certifies that the holder has successfully passed the Solana Developer skill test on CredChain with a score of 70% or higher, demonstrating expertise in Anchor framework, Rust programming, and Solana program development.",
+  "image": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/solana-developer.png",
+  "external_url": "https://credchain.io/credentials/solana-developer",
+  "attributes": [
+    {
+      "trait_type": "Skill Category",
+      "value": "Solana Developer"
+    },
+    {
+      "trait_type": "Difficulty",
+      "value": "Advanced"
+    },
+    {
+      "trait_type": "Test Duration",
+      "value": "90 minutes"
+    },
+    {
+      "trait_type": "Platform",
+      "value": "CredChain"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Badge Type",
+      "value": "Skill Certification"
+    },
+    {
+      "trait_type": "Issuer",
+      "value": "CredChain DAO"
+    }
+  ],
+  "properties": {
+    "category": "certification",
+    "files": [
+      {
+        "uri": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/solana-developer.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "FXtdnHTgD2sDEih5s7WgXGrsY9MeGh484h7tzfxqXu6h",
+        "share": 100
+      }
+    ]
+  }
+}

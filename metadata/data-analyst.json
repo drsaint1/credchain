@@ -1,0 +1,52 @@
+{
+  "name": "CredChain Data Analyst Badge",
+  "symbol": "CRED-DATA",
+  "description": "This badge certifies that the holder has successfully passed the Data Analyst skill test on CredChain with a score of 70% or higher, demonstrating expertise in SQL, Python, data visualization, statistical analysis, and business intelligence.",
+  "image": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/data-analyst.png",
+  "external_url": "https://credchain.io/credentials/data-analyst",
+  "attributes": [
+    {
+      "trait_type": "Skill Category",
+      "value": "Data Analyst"
+    },
+    {
+      "trait_type": "Difficulty",
+      "value": "Advanced"
+    },
+    {
+      "trait_type": "Test Duration",
+      "value": "90 minutes"
+    },
+    {
+      "trait_type": "Platform",
+      "value": "CredChain"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Badge Type",
+      "value": "Skill Certification"
+    },
+    {
+      "trait_type": "Issuer",
+      "value": "CredChain DAO"
+    }
+  ],
+  "properties": {
+    "category": "certification",
+    "files": [
+      {
+        "uri": "ipfs://bafybeiewkr6x272kfy6mba6qksoxwkgvfmwsnsq3ph5oyxw6njtaezx2ge/data-analyst.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "FXtdnHTgD2sDEih5s7WgXGrsY9MeGh484h7tzfxqXu6h",
+        "share": 100
+      }
+    ]
+  }
+}
