@@ -35,9 +35,6 @@ interface Contract {
   };
 }
 
-
-const DEV_MODE = true;
-
 export const Contracts = () => {
   const { publicKey, connected } = useWallet();
   const { credchainProgram } = usePrograms();
@@ -96,39 +93,6 @@ export const Contracts = () => {
     }
   };
 
-  
-  const fillDevData = () => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const tomorrowStr = tomorrow.toISOString().split('T')[0];
-
-    setFormData({
-      title: 'Test Logo Design Project',
-      description: 'Create a modern logo for tech startup',
-      freelancerAddress: 'FXtdnHTgD2sDEih5s7WgXGrsY9MeGh484h7tzfxqXu6h', 
-      totalAmount: '',
-      paymentToken: 'SOL',
-    });
-
-    setMilestones([
-      {
-        id: '1',
-        title: 'Initial Concepts',
-        description: 'Create 3 initial logo concepts',
-        amount: '0.5',
-        deadline: tomorrowStr,
-      },
-      {
-        id: '2',
-        title: 'Final Design',
-        description: 'Deliver final logo files',
-        amount: '1.0',
-        deadline: tomorrowStr,
-      },
-    ]);
-
-    console.log('✅ Dev data filled');
-  };
 
   const addMilestone = () => {
     if (milestones.length >= CONTRACT_CONFIG.MAX_MILESTONES) {
@@ -311,15 +275,6 @@ export const Contracts = () => {
         <div className="glass-card p-8 animate-slide-up">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold">Create New Contract</h2>
-            {DEV_MODE && (
-              <button
-                type="button"
-                onClick={fillDevData}
-                className="text-sm px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-lg hover:bg-yellow-500/30 transition-colors"
-              >
-                🔧 Fill Test Data
-              </button>
-            )}
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             
